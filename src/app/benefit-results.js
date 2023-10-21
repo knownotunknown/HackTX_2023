@@ -1,45 +1,35 @@
 "use client"
 import React, { useState } from 'react';
 import styles from './results.module.css';
-import { Checkmark } from 'react-checkmark'
+//import { Checkmark } from 'react-checkmark';
+import CheckIcon from '@mui/icons-material/Check';
 
-enum Color {
+/*enum Color {
     Green = 'green',
     Gray = 'gray'
-}
+}*/
+
+const COLOR_GREEN = "success";
+const COLOR_GRAY = "primary";
 
 export function ResultsPopup() {
   const [keywords, setKeywords] = useState([
     'computer science', 'development', 'python', 'business analysis',
-    'capital markets', 'compliance', 'derivatives', 'design', 'documentation',
-    'etl', 'risk management', 'sdlc', 'self', 'source code', 'spam', 'sql',
-    'test driven development', 'testing', 'unix'
+    'capital markets'
   ]);
 
-  const [checkmarkColors, setCheckmarkColors] = useState<Color[]>([]);
+  const [checkmarkColors, setCheckmarkColors] = useState(Array(keywords.length).fill(COLOR_GRAY));
   
   return (
     <div className={styles.resultsPopup}>
-      <h3>Apply with Simplify!</h3>
-      <p>We'll help you autofill this job application with information from your Simplify profile:</p>
-      <button>AUTOFILL ALL</button>
-      <hr />
-      <div className={styles.resumeMatch}>
-        <h4>16% RESUME MATCH</h4>
-        <button>TAILOR RESUME</button>
-      </div>
-      <hr />
-      <div className={styles.keywords}>
-        <p>Your resume has 3 out of 19 keywords that appear in the job description. Try to get your score above 70% to increase your chances!</p>
-        <ul>
-          
-          {keywords.map((keyword, index) => { 
-          <><Checkmark color = {checkmarkColor[index] ? checkmarkColor[index] : Color.Gray}/>
-          <li key={index}>{keyword}</li></>
-          }
-          )}
-        </ul>
-      </div>
+      <h3>Matches found...</h3>
+      <ul>
+        {keywords.map((keyword, index) => { 
+        return <div className = {styles.entry}>{<CheckIcon size = '24px' color={checkmarkColors[index] || COLOR_GREEN}/>}
+        <li key={index}>{keyword}</li></div>
+        }
+        )}
+      </ul>
     </div>
   );
 }
