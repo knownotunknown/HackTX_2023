@@ -1,15 +1,23 @@
 "use client"
 import React, { useState } from 'react';
 import styles from './page.module.css';
-
+// import pdf from 'pdf-parse';
 export default function Home() {
     const [file, setFile] = useState(null);
     const [benefits, setBenefits] = useState([]);
 
-    const handleFileChange = (e) => {
+    const handleFileChange = async (e) => {
         const file = e.target.files[0];
         if (file) {
             setFile(file);
+
+            // const data = await pdf(file);
+            // const extractedText = data.text;
+
+
+            // console.log('this is the extracted text', extractedText)
+
+            // Now you can process the extractedText further...
         }
     };
 
