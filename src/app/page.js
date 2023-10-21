@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import styles from './page.module.css';
+import { ResultsPopup } from './benefit-results';
 
 export default function Home() {
     const [file, setFile] = useState(null);
@@ -14,6 +15,7 @@ export default function Home() {
     };
 
     return (
+        <>
         <div className={styles.container}>
             <h1 className={styles.header}>PDF Benefits Analyzer</h1>
             <h2 className={styles.subHeader}>Upload a copy of your employment agreement and discover your benefits within seconds!</h2>
@@ -30,7 +32,7 @@ export default function Home() {
                     <p key={index}>{benefit}</p>
                 ))}
             </div>
-
         </div>
+        <ResultsPopup /></>
     );
 }

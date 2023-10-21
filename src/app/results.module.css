@@ -1,0 +1,43 @@
+.resultsPopup {
+    width: 250px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 10px;
+    right: 25px;
+    display: flex;            /* Added flexbox */
+    flex-direction: column;   /* Children will stack vertically */
+    align-items: center;      /* Center-align children horizontally */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle drop shadow */
+}
+
+.resultsPopup h3 {
+    color: #2e8b57; /* Adjust this color to match the logo color */
+}
+
+.resumeMatch {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    width: 100%;            /* Full width to take advantage of flexbox */
+}
+
+.resumeMatch h4 {
+    color: #ff4500; /* Adjust this color to match the percentage color */
+}
+
+.keywords ul {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;            /* Full width to take advantage of flexbox */
+}
+
+.keywords li {
+    background-color: #e6e6e6;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+    text-align: left;     /* Center the text in each list item */
+}
