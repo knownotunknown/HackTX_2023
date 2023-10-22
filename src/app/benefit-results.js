@@ -12,20 +12,20 @@ import CheckIcon from '@mui/icons-material/Check';
 const COLOR_GREEN = "success";
 const COLOR_GRAY = "primary";
 
-export function ResultsPopup() {
+export function ResultsPopup(/*keywords, */open, predefinedBenefits) {
   const [keywords, setKeywords] = useState([
     'computer science', 'development', 'python', 'business analysis',
     'capital markets'
   ]);
-
-  const [checkmarkColors, setCheckmarkColors] = useState(Array(keywords.length).fill(COLOR_GRAY));
+  let defaultColor = predefinedBenefits ? COLOR_GRAY : COLOR_GREEN;
+  const [checkmarkColors, setCheckmarkColors] = useState(Array(keywords.length).fill(defaultColor));
   
   return (
     <div className={styles.resultsPopup}>
       <h3>Matches found...</h3>
       <ul>
         {keywords.map((keyword, index) => { 
-        return <div className = {styles.entry}>{<CheckIcon size = '24px' color={checkmarkColors[index] || COLOR_GREEN}/>}
+        return <div className = {styles.entry}>{<CheckIcon size = '24px' color={checkmarkColors[index] || COLOR_GRAY}/>}
         <li key={index}>{keyword}</li></div>
         }
         )}
